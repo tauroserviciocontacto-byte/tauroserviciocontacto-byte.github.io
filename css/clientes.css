@@ -1,0 +1,69 @@
+body {
+  font-family: "Roboto Flex";
+    margin-top: 80px;  
+}
+
+.menu_bar {
+    background-color: var(--color-black);
+    height: 80px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: fixed;
+    top: 0;  
+    left: 0;
+    z-index: 1000;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+  
+  /* Estilos para el grid */
+  .three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+  }
+  
+  .three-columns li {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+  .three-columns li:hover {
+    background-color: #0078b7; 
+    color: white; 
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05); 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .three-columns {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  /* Media query para pantallas pequeñas (smartphones) */
+  @media (max-width: 480px) {
+    .three-columns {
+      grid-template-columns: 1fr; 
+    }
+  
+  }

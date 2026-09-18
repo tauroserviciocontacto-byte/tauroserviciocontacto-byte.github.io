@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tauro | Limpieza y Mantenimiento</title>
+<meta name="description" content="Limpieza profesional y mantenimiento para oficinas, comercios e instalaciones. Más de 25 años de experiencia.">
+<meta name="keywords" content="Servicios, Limpieza, Mantenimiento, Tauro, Lavado, Pulido, Pintura">
+<meta name="author" content="Kevin Capelo">
+<link rel="shortcut icon" href="img/toro-10.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+
+<style>
+  :root{
+    --azul-950:#0E2A47; --azul-800:#163A5F; --azul-600:#2565A6; --azul-400:#4C8BCB;
+    --rojo-600:#DC3535; --rojo-100:#FDEAEA;
+    --verde:#25D366;
+    --gris-100:#F5F7FA; --gris-300:#DCE3EA;
+    --texto:#1D2733; --texto-suave:#5C6B7A; --blanco:#FFFFFF;
+    --radio:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--texto);line-height:1.6;background:var(--blanco);}
+  h1,h2,h3{font-family:'Manrope',sans-serif;color:var(--azul-950);line-height:1.2;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .contenedor{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .boton{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:0.95rem;border:1.5px solid transparent;transition:transform .15s ease, box-shadow .15s ease;}
+  .boton:hover{transform:translateY(-2px);}
+  .boton-whatsapp{background:var(--verde);color:#08331B;}
+  .boton-whatsapp:hover{box-shadow:0 8px 20px rgba(37,211,102,.35);}
+  .boton-contorno{border-color:rgba(255,255,255,.35);color:var(--blanco);}
+  .boton-contorno:hover{border-color:var(--blanco);}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:60;background:var(--azul-950);}
+  .header-interior{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .logo img{height:38px;}
+  nav ul{display:flex;gap:30px;align-items:center;}
+  nav a{font-weight:500;font-size:0.95rem;color:#DCE8F5;}
+  nav a:hover{color:var(--blanco);}
+  nav li.activo > a{color:var(--blanco);border-bottom:2px solid var(--rojo-600);padding-bottom:4px;}
+  .nav-cta{background:var(--rojo-600);color:var(--blanco);padding:10px 20px;border-radius:999px;font-weight:600;font-size:0.9rem;display:flex;align-items:center;gap:8px;}
+  .nav-cta:hover{background:#c22b2b;}
+  details.submenu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:500;font-size:0.95rem;color:#DCE8F5;}
+  details.submenu summary::-webkit-details-marker{display:none;}
+  details.submenu[open] summary{color:var(--blanco);}
+  details.submenu ul{position:absolute;background:var(--blanco);border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.15);padding:10px;margin-top:12px;min-width:160px;flex-direction:column;gap:0;}
+  details.submenu ul li a{color:var(--texto);padding:8px 12px;border-radius:6px;display:block;}
+  details.submenu ul li a:hover{background:var(--gris-100);}
+  .hamburger{display:none;font-size:1.4rem;color:var(--blanco);cursor:pointer;}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--azul-950) 0%, var(--azul-800) 55%, var(--azul-600) 100%);padding:80px 0 100px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.85fr;gap:50px;align-items:center;}
+  .hero-eyebrow{color:#9FC4E8;font-weight:700;font-size:0.85rem;letter-spacing:.03em;margin-bottom:14px;}
+  .hero h1{color:var(--blanco);font-size:2.7rem;font-weight:800;margin-bottom:18px;max-width:560px;}
+  .hero h1 span{color:#7FC4FF;}
+  .hero p{color:#C9D9E8;font-size:1.05rem;max-width:480px;margin-bottom:30px;}
+  .hero-botones{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .hero-features{display:flex;gap:30px;flex-wrap:wrap;}
+  .hero-features div{display:flex;align-items:center;gap:10px;color:#DCE8F5;font-size:0.9rem;font-weight:500;}
+  .hero-features i{color:#7FC4FF;font-size:1.1rem;}
+  .hero-grafico{position:relative;aspect-ratio:1/1;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;}
+  .hero-grafico img{width:55%;filter:drop-shadow(0 12px 30px rgba(0,0,0,.35));}
+  .hero-grafico::before{content:"";position:absolute;inset:18px;border:1px dashed rgba(255,255,255,.18);border-radius:18px;}
+
+  /* Secciones claras */
+  .seccion{padding:88px 0;}
+  .eyebrow-rojo{display:flex;align-items:center;gap:10px;color:var(--rojo-600);font-weight:700;font-size:0.85rem;margin-bottom:14px;}
+  .eyebrow-rojo hr{border:none;border-top:2px solid var(--rojo-600);width:30px;}
+  .encabezado-seccion{max-width:600px;margin-bottom:48px;}
+  .encabezado-seccion h2{font-size:2rem;font-weight:800;margin-bottom:14px;}
+  .encabezado-seccion h2 span{color:var(--azul-600);}
+  .encabezado-seccion p{color:var(--texto-suave);}
+  .ver-todos{color:var(--rojo-600);font-weight:600;display:inline-flex;align-items:center;gap:6px;margin-top:14px;}
+
+  .grid-servicios{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .tarjeta-servicio{border:1px solid var(--gris-300);border-radius:var(--radio);padding:26px 22px;background:var(--blanco);}
+  .tarjeta-servicio .icono{width:46px;height:46px;border-radius:12px;background:var(--azul-950);color:var(--blanco);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:18px;}
+  .tarjeta-servicio h3{font-size:1.1rem;margin-bottom:8px;}
+  .tarjeta-servicio p{color:var(--texto-suave);font-size:0.92rem;}
+
+  /* Clientes */
+  .clientes{background:var(--gris-100);}
+  .clientes-flex{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px;}
+  .clientes-flex .encabezado-seccion{margin-bottom:0;}
+  .nota-manuscrita{font-family:'Manrope',sans-serif;font-style:italic;color:var(--azul-600);text-align:right;font-size:1.05rem;max-width:220px;position:relative;}
+  .nota-manuscrita::after{content:"";position:absolute;right:0;bottom:-8px;width:60%;height:2px;background:var(--rojo-600);}
+
+  .slider{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .slide-track{display:flex;width:calc(220px * 16);animation:desfile 32s linear infinite;}
+  .slide{width:220px;display:flex;align-items:center;justify-content:center;padding:0 30px;}
+  .slide img{max-height:42px;width:auto;filter:grayscale(1);opacity:.65;transition:opacity .2s;}
+  .slide img:hover{opacity:1;}
+  @keyframes desfile{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* Stats */
+  .stats{background:var(--blanco);border-top:1px solid var(--gris-300);border-bottom:1px solid var(--gris-300);}
+  .grid-stats{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:40px 30px;border-left:1px solid var(--gris-300);}
+  .stat:first-child{border-left:none;}
+  .stat i{color:var(--rojo-600);font-size:1.3rem;margin-bottom:12px;display:block;}
+  .stat strong{display:block;font-size:1.05rem;color:var(--azul-950);margin-bottom:4px;}
+  .stat span{color:var(--texto-suave);font-size:0.88rem;}
+
+  /* CTA final */
+  .cta-final{background:var(--azul-950);color:var(--blanco);padding:60px 0;}
+  .cta-grid{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+  .cta-grid h2{color:var(--blanco);font-size:1.6rem;margin-bottom:10px;}
+  .cta-grid p{color:#B9CBDC;max-width:440px;}
+  .cta-botones{display:flex;gap:12px;flex-wrap:wrap;}
+  .boton-social{border:1.5px solid rgba(255,255,255,.25);color:var(--blanco);}
+  .boton-social:hover{border-color:var(--blanco);}
+  .cta-frase{color:#7FC4FF;font-weight:600;font-style:italic;}
+
+  /* Footer (igual a las otras 4 páginas) */
+  footer{background:var(--azul-950);color:#B9CBDC;padding:44px 0 22px;border-top:1px solid rgba(255,255,255,.1);}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.4fr;gap:30px;align-items:start;}
+  .footer-grid img{height:32px;margin-bottom:8px;}
+  .footer-grid h4{color:var(--blanco);font-size:0.85rem;margin-bottom:12px;}
+  .footer-grid li{margin-bottom:8px;font-size:0.88rem;}
+  .footer-redes{display:flex;gap:10px;margin-top:6px;}
+  .footer-redes a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .footer-redes a:hover{background:var(--rojo-600);border-color:var(--rojo-600);}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:20px;font-size:0.8rem;color:#7E93A6;flex-wrap:wrap;gap:8px;}
+
+  /* Responsive */
+  @media (max-width:960px){
+    nav ul{position:fixed;top:66px;left:0;right:0;background:var(--azul-950);flex-direction:column;padding:20px;gap:16px;display:none;}
+    nav ul.abierto{display:flex;}
+    .hamburger{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-grafico{display:none;}
+    .grid-servicios{grid-template-columns:repeat(2,1fr);}
+    .grid-stats{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(3){border-left:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .clientes-flex{flex-direction:column;align-items:flex-start;}
+    .nota-manuscrita{text-align:left;}
+    .nota-manuscrita::after{right:auto;left:0;}
+  }
+  @media (max-width:560px){
+    .hero h1{font-size:2rem;}
+    .grid-servicios{grid-template-columns:1fr;}
+    .grid-stats{grid-template-columns:1fr;}
+    .stat{border-left:none;border-top:1px solid var(--gris-300);}
+    .stat:first-child{border-top:none;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .slide-track{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-interior">
+    <a href="index.html" class="logo"><img src="img/logo-navbar.png" alt="Tauro"></a>
+    <i class="fas fa-bars hamburger" id="btnMenu"></i>
+    <nav>
+      <ul id="menuLinks">
+        <li>
+          <details class="submenu">
+            <summary>Servicios <i class="fas fa-caret-down"></i></summary>
+            <ul>
+              <li><a href="servicios.html#limpieza">Limpieza</a></li>
+              <li><a href="servicios.html#mantenimiento">Mantenimiento</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="nuestros-clientes.html">Nuestros clientes</a></li>
+        <li><a href="preguntasfrecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://wa.me/525517002822" target="_blank" class="nav-cta"><i class="fab fa-whatsapp"></i> Contáctanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="contenedor hero-grid">
+    <div>
+      <span class="hero-eyebrow">Espacios que inspiran más</span>
+      <h1>Limpieza profesional para lo que <span>realmente importa</span></h1>
+      <p>En Tauro nos especializamos en mantener espacios limpios, seguros y en óptimas condiciones, para que tú puedas enfocarte en lo que realmente importa.</p>
+      <div class="hero-botones">
+        <a href="https://wa.me/525517002822" target="_blank" class="boton boton-whatsapp"><i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp</a>
+        <a href="#servicios" class="boton boton-contorno">Conocer más</a>
+      </div>
+      <div class="hero-features">
+        <div><i class="fas fa-shield-halved"></i> Confianza</div>
+        <div><i class="fas fa-leaf"></i> Bienestar</div>
+        <div><i class="fas fa-users"></i> Personas</div>
+        <div><i class="fas fa-chart-simple"></i> Resultados</div>
+      </div>
+    </div>
+    <div class="hero-grafico">
+      <img src="img/toro-10.png" alt="Tauro">
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="servicios">
+  <div class="contenedor">
+    <div class="encabezado-seccion">
+      <div class="eyebrow-rojo"><hr>NUESTROS SERVICIOS</div>
+      <h2>Soluciones de limpieza <span>para cada espacio</span></h2>
+      <p>Nos adaptamos a tus necesidades con servicios de limpieza y mantenimiento que garantizan calidad, seguridad y confianza.</p>
+      <a href="servicios.html" class="ver-todos">Ver todos los servicios <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="grid-servicios">
+      <div class="tarjeta-servicio">
+        <div class="icono"><i class="fas fa-building"></i></div>
+        <h3>Oficinas</h3>
+        <p>Espacios de trabajo limpios y productivos.</p>
+      </div>
+      <div class="tarjeta-servicio">
+        <div class="icono"><i class="fas fa-store"></i></div>
+        <h3>Comercios</h3>
+        <p>Ambientes impecables para tus clientes.</p>
+      </div>
+      <div class="tarjeta-servicio">
+        <div class="icono"><i class="fas fa-industry"></i></div>
+        <h3>Instalaciones</h3>
+        <p>Mantenimiento profesional a gran escala.</p>
+      </div>
+      <div class="tarjeta-servicio">
+        <div class="icono"><i class="fas fa-broom"></i></div>
+        <h3>Limpieza especializada</h3>
+        <p>Soluciones para espacios de difícil acceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion clientes" itemscope itemtype="https://schema.org/Organization">
+  <div class="contenedor">
+    <div class="clientes-flex">
+      <div class="encabezado-seccion">
+        <div class="eyebrow-rojo"><hr>NUESTROS CLIENTES</div>
+        <h2>La confianza <span>nos impulsa</span></h2>
+        <p>Trabajamos con empresas, comercios e instituciones que confían en nosotros para mantener sus espacios en óptimas condiciones.</p>
+      </div>
+      <p class="nota-manuscrita">Gracias por ser parte de nuestra historia.</p>
+    </div>
+  </div>
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide"><img src="img/cinepolis.png" alt="Cinepolis" itemprop="logo"></div>
+      <div class="slide"><img src="img/citiexpress.png" alt="Citi Express" itemprop="logo"></div>
+      <div class="slide"><img src="img/forumbuenavista.png" alt="Buena vista" itemprop="logo"></div>
+      <div class="slide"><img src="img/Grupo_Gigante.png" alt="Grupo Gigante" itemprop="logo"></div>
+      <div class="slide"><img src="img/honda.png" alt="Honda" itemprop="logo"></div>
+      <div class="slide"><img src="img/logo-recorcholis.png" alt="Recorcholis" itemprop="logo"></div>
+      <div class="slide"><img src="img/hospitalangeles.png" alt="Hospital Ángeles" itemprop="logo"></div>
+      <div class="slide"><img src="img/PaseoAcoxpa_Logo.png" alt="Paseo Acoxpa" itemprop="logo"></div>
+      <div class="slide"><img src="img/cinepolis.png" alt="Cinepolis"></div>
+      <div class="slide"><img src="img/citiexpress.png" alt="Citi Express"></div>
+      <div class="slide"><img src="img/forumbuenavista.png" alt="Buena vista"></div>
+      <div class="slide"><img src="img/Grupo_Gigante.png" alt="Grupo Gigante"></div>
+      <div class="slide"><img src="img/honda.png" alt="Honda"></div>
+      <div class="slide"><img src="img/logo-recorcholis.png" alt="Recorcholis"></div>
+      <div class="slide"><img src="img/hospitalangeles.png" alt="Hospital Ángeles"></div>
+      <div class="slide"><img src="img/PaseoAcoxpa_Logo.png" alt="Paseo Acoxpa"></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="contenedor grid-stats">
+    <div class="stat"><i class="fas fa-users"></i><strong>+50</strong><span>Clientes satisfechos</span></div>
+    <div class="stat"><i class="fas fa-star"></i><strong>Calidad</strong><span>en cada detalle</span></div>
+    <div class="stat"><i class="fas fa-leaf"></i><strong>Espacios más saludables</strong><span>para tu equipo</span></div>
+    <div class="stat"><i class="fas fa-shield-halved"></i><strong>Comprometidos</strong><span>con tu tranquilidad</span></div>
+  </div>
+</section>
+
+<section class="cta-final" id="contacto">
+  <div class="contenedor cta-grid">
+    <div>
+      <h2>¿Necesitas información?</h2>
+      <p>Cuéntanos qué espacio necesitas mantener. Escríbenos por WhatsApp, Facebook o Instagram y en Tauro estaremos encantados de ayudarte.</p>
+    </div>
+    <div class="cta-botones">
+      <a href="https://wa.me/525517002822" target="_blank" class="boton boton-whatsapp"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</a>
+      <a href="https://www.facebook.com/profile.php?id=61561903291746&mibextid=LQQJ4d" target="_blank" class="boton boton-social"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://www.instagram.com/tauro.limpieza" target="_blank" class="boton boton-social"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </div>
+  <div class="contenedor" style="margin-top:30px;">
+    <p class="cta-frase">Espacios limpios, personas tranquilas.</p>
+  </div>
+</section>
+
+<footer itemscope itemtype="https://schema.org/Organization">
+  <div class="contenedor footer-grid">
+    <div>
+      <a href="index.html"><img src="img/toroblanco-10.png" alt="Tauro"></a>
+      <p>Espacios limpios, personas tranquilas.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="nuestros-clientes.html">Nuestros clientes</a></li>
+        <li><a href="preguntasfrecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <div class="footer-redes">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tauro.serviciocontacto@gmail.com&su=Asunto%20del%20correo&body=Cuerpo%20del%20correo" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/tauro.limpieza" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/525517002822" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4>Certificaciones</h4>
+      <p itemprop="description">Nuestros colaboradores están certificados en DC3 en diversas áreas, como bloqueo y etiquetado, colores y señalamiento, comisión de seguridad e higiene, trabajos en alturas, equipo de protección, plan de respuesta en emergencia, seguridad industrial nivel superior y sistema armonizado, por mencionar algunas.</p>
+    </div>
+  </div>
+  <div class="contenedor footer-bottom">
+    <small>&copy; 2026 <b>Tauro</b> - Todos los Derechos Reservados.</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('btnMenu').addEventListener('click', () => {
+    document.getElementById('menuLinks').classList.toggle('abierto');
+  });
+</script>
+
+</body>
+</html>

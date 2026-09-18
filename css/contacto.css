@@ -1,0 +1,49 @@
+body {
+    font-family: "Roboto Flex";
+    min-height: 100vh;
+    margin-top: 80px;  /* Este margen debe ser igual a la altura de la barra de navegación */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;  /* Previene el desbordamiento horizontal */
+}
+
+.menu_bar {
+    background-color: var(--color-black);
+    height: 80px; /* La altura de la barra */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: fixed;
+    top: 0;  
+    left: 0;
+    z-index: 1000;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {margin-top: auto;}
+
+@media (max-width: 768px) {
+    .cajac h2{
+        font-size: 10px;
+        font-family: "Roboto Flex";
+    }
+    .textoa{
+        margin: 10px;
+    }
+    .social-media{
+        gap: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    .social-icon {
+        font-size: 20px; /* Aumenta el tamaño en pantallas pequeñas */
+        
+    }
+}
+
+.social-icon:hover {
+    color: #b81820; /* Cambia el color al pasar el cursor */
+}

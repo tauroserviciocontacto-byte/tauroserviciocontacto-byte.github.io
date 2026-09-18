@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios | Tauro</title>
+<meta name="description" content="Servicios de limpieza y mantenimiento de Tauro: vidrios en altura, alfombras, tinacos, pintura, impermeabilizado, jardinería y más.">
+<link rel="shortcut icon" href="img/toro-10.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+
+<style>
+  :root{
+    --azul-950:#0E2A47; --azul-800:#163A5F; --azul-600:#2565A6; --azul-400:#4C8BCB;
+    --rojo-600:#DC3535; --rojo-100:#FDEAEA;
+    --gris-100:#F5F7FA; --gris-300:#DCE3EA;
+    --texto:#1D2733; --texto-suave:#5C6B7A; --blanco:#FFFFFF;
+    --radio:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--texto);line-height:1.6;background:var(--blanco);}
+  h1,h2,h3{font-family:'Manrope',sans-serif;color:var(--azul-950);line-height:1.2;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .contenedor{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* Header (igual que index.html) */
+  header{position:sticky;top:0;z-index:60;background:var(--azul-950);}
+  .header-interior{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .logo img{height:38px;}
+  nav ul{display:flex;gap:30px;align-items:center;}
+  nav a{font-weight:500;font-size:0.95rem;color:#DCE8F5;}
+  nav a:hover{color:var(--blanco);}
+  nav li.activo > a, nav li.activo summary{color:var(--blanco);border-bottom:2px solid var(--rojo-600);padding-bottom:4px;}
+  .nav-cta{background:var(--rojo-600);color:var(--blanco);padding:10px 20px;border-radius:999px;font-weight:600;font-size:0.9rem;display:flex;align-items:center;gap:8px;}
+  .nav-cta:hover{background:#c22b2b;}
+  details.submenu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:500;font-size:0.95rem;color:#DCE8F5;}
+  details.submenu summary::-webkit-details-marker{display:none;}
+  details.submenu[open] summary{color:var(--blanco);}
+  details.submenu ul{position:absolute;background:var(--blanco);border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.15);padding:10px;margin-top:12px;min-width:160px;flex-direction:column;gap:0;}
+  details.submenu ul li a{color:var(--texto);padding:8px 12px;border-radius:6px;display:block;}
+  details.submenu ul li a:hover{background:var(--gris-100);}
+  .hamburger{display:none;font-size:1.4rem;color:var(--blanco);cursor:pointer;}
+
+  /* Intro de servicios */
+  .intro-servicios{padding:70px 0 20px;position:relative;overflow:hidden;}
+  .intro-servicios::before{
+    content:"";position:absolute;top:-120px;left:-160px;width:520px;height:520px;
+    background:var(--gris-100);border-radius:40%;transform:rotate(18deg);z-index:-1;
+  }
+  .layout-servicios{display:grid;grid-template-columns:150px 1fr 150px;gap:20px;}
+  .rieles{display:flex;flex-direction:column;gap:10px;padding-top:10px;}
+  .rieles span{font-size:0.8rem;font-weight:700;letter-spacing:.04em;color:var(--azul-950);}
+  .rieles hr{border:none;border-top:2px solid var(--rojo-600);width:26px;margin:14px 0;}
+  .rieles p{font-size:0.85rem;color:var(--texto-suave);max-width:150px;}
+  .notas-mano{display:flex;flex-direction:column;gap:80px;padding-top:20px;}
+  .notas-mano p{font-family:'Manrope',sans-serif;font-style:italic;color:var(--azul-600);font-size:1.15rem;text-align:right;}
+
+  .eyebrow-rojo{display:flex;align-items:center;gap:10px;justify-content:center;color:var(--rojo-600);font-weight:700;font-size:0.85rem;margin-bottom:18px;}
+  .eyebrow-rojo hr{border:none;border-top:2px solid var(--rojo-600);width:30px;}
+  .titulo-servicios{font-size:2.2rem;font-weight:800;text-align:center;margin-bottom:10px;}
+  .titulo-servicios span{color:var(--azul-600);}
+  .subtitulo-servicios{text-align:center;color:var(--texto-suave);max-width:520px;margin:0 auto 50px;}
+
+  /* Grid de tarjetas */
+  .grid-servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:90px;}
+  .tarjeta{background:var(--blanco);border:1px solid var(--gris-300);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;}
+  .tarjeta-foto{position:relative;aspect-ratio:4/3;background:var(--gris-100);}
+  .tarjeta-foto img{width:100%;height:100%;object-fit:cover;}
+  .tarjeta-numero{position:absolute;top:12px;right:14px;color:var(--blanco);font-weight:800;font-size:1.3rem;text-shadow:0 2px 8px rgba(0,0,0,.4);}
+  .tarjeta-icono{
+    width:52px;height:52px;border-radius:50%;background:var(--blanco);
+    border:1px solid var(--gris-300);display:flex;align-items:center;justify-content:center;
+    margin:-26px 0 0 20px;box-shadow:0 6px 16px rgba(14,42,71,.12);
+  }
+  .tarjeta-icono img{width:24px;height:24px;object-fit:contain;}
+  .tarjeta-texto{padding:16px 20px 22px;}
+  .tarjeta-texto h3{font-size:1.05rem;margin-bottom:8px;}
+  .tarjeta-texto p{color:var(--texto-suave);font-size:0.9rem;margin-bottom:16px;}
+  .boton-vermas{
+    display:inline-flex;align-items:center;gap:8px;color:var(--rojo-600);
+    border:1.5px solid var(--rojo-600);border-radius:999px;padding:8px 16px;
+    font-size:0.85rem;font-weight:600;
+  }
+  .boton-vermas:hover{background:var(--rojo-100);}
+
+  /* Modales (sin JS, con :target) */
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:100;padding:24px;}
+  .modal:target{display:flex;}
+  .overlay{position:absolute;inset:0;background:rgba(14,42,71,.6);}
+  .modal-content{position:relative;background:var(--blanco);border-radius:16px;max-width:760px;width:100%;max-height:86vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;}
+  .modal-image{background:var(--gris-100);min-height:220px;}
+  .modal-image img{width:100%;height:100%;object-fit:cover;}
+  .modal-text{padding:28px;}
+  .modal-text h2{font-size:1.3rem;margin-bottom:14px;}
+  .modal-text p{color:var(--texto-suave);font-size:0.92rem;margin-bottom:10px;}
+  .modal-text b i{color:var(--azul-950);font-style:normal;}
+  .close-modal-btn{position:absolute;top:12px;right:16px;font-size:1.4rem;color:var(--texto-suave);z-index:2;}
+  .close-modal-btn:hover{color:var(--rojo-600);}
+
+  /* CTA final */
+  .cta-final{background:var(--azul-950);color:var(--blanco);padding:44px 0;}
+  .cta-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
+  .cta-grid h2{color:var(--blanco);font-size:1.3rem;}
+  .cta-grid p{color:#B9CBDC;font-size:0.92rem;}
+  .boton-whatsapp{display:inline-flex;align-items:center;gap:8px;background:var(--rojo-600);color:var(--blanco);padding:13px 24px;border-radius:999px;font-weight:600;}
+  .boton-whatsapp:hover{background:#c22b2b;}
+
+  /* Footer */
+  footer{background:var(--azul-950);color:#B9CBDC;padding:44px 0 22px;border-top:1px solid rgba(255,255,255,.1);}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.4fr;gap:30px;align-items:start;}
+  .footer-grid img{height:32px;margin-bottom:8px;}
+  .footer-grid h4{color:var(--blanco);font-size:0.85rem;margin-bottom:12px;}
+  .footer-grid li{margin-bottom:8px;font-size:0.88rem;}
+  .footer-redes{display:flex;gap:10px;margin-top:6px;}
+  .footer-redes a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+  .footer-redes a:hover{background:var(--rojo-600);border-color:var(--rojo-600);}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:20px;font-size:0.8rem;color:#7E93A6;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:960px){
+    nav ul{position:fixed;top:66px;left:0;right:0;background:var(--azul-950);flex-direction:column;padding:20px;gap:16px;display:none;}
+    nav ul.abierto{display:flex;}
+    .hamburger{display:block;}
+    .layout-servicios{grid-template-columns:1fr;}
+    .rieles,.notas-mano{display:none;}
+    .grid-servicios{grid-template-columns:1fr 1fr;}
+    .modal-content{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .grid-servicios{grid-template-columns:1fr;}
+    .titulo-servicios{font-size:1.6rem;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-interior">
+    <a href="index.html" class="logo"><img src="img/logo-navbar.png" alt="Tauro"></a>
+    <i class="fas fa-bars hamburger" id="btnMenu"></i>
+    <nav>
+      <ul id="menuLinks">
+        <li class="activo">
+          <details class="submenu">
+            <summary>Servicios <i class="fas fa-caret-down"></i></summary>
+            <ul>
+              <li><a href="#limpieza">Limpieza</a></li>
+              <li><a href="#mantenimiento">Mantenimiento</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="nuestros-clientes.html">Nuestros clientes</a></li>
+        <li><a href="preguntasfrecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://wa.me/525517002822" target="_blank" class="nav-cta"><i class="fab fa-whatsapp"></i> Contáctanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="intro-servicios" id="limpieza">
+  <div class="contenedor layout-servicios">
+    <div class="rieles">
+      <span>LIMPIEZA</span>
+      <span>SEGURIDAD</span>
+      <span>BIENESTAR</span>
+      <span>CONFIANZA</span>
+      <hr>
+      <p>Un entorno limpio también construye grandes historias.</p>
+    </div>
+    <div>
+      <div class="eyebrow-rojo"><hr>NUESTROS SERVICIOS<hr></div>
+      <h2 class="titulo-servicios">Limpieza que cuida <span>cada detalle.</span></h2>
+      <p class="subtitulo-servicios">Soluciones profesionales para mantener tus espacios limpios, seguros y en óptimas condiciones.</p>
+
+      <div class="grid-servicios">
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/vidrios-altura.jpg" alt="Limpieza de vidrios en altura">
+            <span class="tarjeta-numero">01</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-06.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Limpieza de vidrios en altura</h3>
+            <p>Restauramos la claridad y elegancia de tus cristales en altura con un servicio experto que prioriza la seguridad.</p>
+            <a href="#modal1" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/alfombras.jpg" alt="Limpieza de alfombras">
+            <span class="tarjeta-numero">02</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-09.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Limpieza de alfombras</h3>
+            <p>Realizamos un lavado profundo y cuidadoso de alfombras, eliminando suciedad y alérgenos para un entorno más limpio y saludable.</p>
+            <a href="#modal2" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/tinacos.jpg" alt="Limpieza de tinacos y cisternas">
+            <span class="tarjeta-numero">03</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-10.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Limpieza de tinacos y cisternas</h3>
+            <p>Aseguramos la limpieza profunda y sanitaria de tinacos y cisternas, garantizando agua libre de contaminantes.</p>
+            <a href="#modal3" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/rampas.jpg" alt="Lavado de puentes y rampas de cristal">
+            <span class="tarjeta-numero">04</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-11-11.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Lavado de puentes y rampas de cristal</h3>
+            <p>Mantenemos la transparencia y seguridad de puentes y rampas de cristal con limpieza especializada.</p>
+            <a href="#modal4" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/inmuebles-altura.jpg" alt="Limpieza de inmuebles en altura">
+            <span class="tarjeta-numero">05</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-07.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Limpieza de inmuebles en altura</h3>
+            <p>Limpieza completa de paredes exteriores a gran altura, mejorando la estética y protección de tu edificación.</p>
+            <a href="#modal5" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notas-mano">
+      <p>Espacios que<br>inspiran más.</p>
+    </div>
+  </div>
+</section>
+
+<section class="intro-servicios" id="mantenimiento">
+  <div class="contenedor layout-servicios">
+    <div class="rieles"></div>
+    <div>
+      <div class="eyebrow-rojo"><hr>NUESTROS SERVICIOS<hr></div>
+      <h2 class="titulo-servicios">Mantenimiento que cuida <span>cada detalle.</span></h2>
+      <p class="subtitulo-servicios">Soluciones profesionales para mantener tus espacios limpios, seguros y en óptimas condiciones.</p>
+
+      <div class="grid-servicios">
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/pintura-foto.jpg" alt="Pintura">
+            <span class="tarjeta-numero">01</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-01.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Pintura</h3>
+            <p>Renovamos tus espacios con trabajos de pintura que combinan precisión y durabilidad, garantizando acabados impecables.</p>
+            <a href="#modal7" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/sellado-foto.jpg" alt="Sellado de ventanas">
+            <span class="tarjeta-numero">02</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-05.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Sellado de ventanas</h3>
+            <p>Protegemos tus instalaciones de filtraciones y desgaste mediante un sellado de ventanas preciso y de alta calidad.</p>
+            <a href="#modal8" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/pulido-foto.jpg" alt="Pulido y abrillantado de pisos">
+            <span class="tarjeta-numero">03</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-02.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Pulido y abrillantado de pisos</h3>
+            <p>Devolvemos el brillo y la elegancia a tus superficies con un pulido profesional.</p>
+            <a href="#modal9" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/impermeabilizado-foto.jpg" alt="Impermeabilizado">
+            <span class="tarjeta-numero">04</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-04.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Impermeabilizado</h3>
+            <p>Protegemos tus edificaciones contra filtraciones y daños estructurales con sistemas de alta durabilidad.</p>
+            <a href="#modal10" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/despercudido-foto.jpg" alt="Despercudido de vidrios y aluminio">
+            <span class="tarjeta-numero">05</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-03.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Despercudido de vidrios y aluminio</h3>
+            <p>Recuperamos la claridad y el brillo original de vidrios y superficies de aluminio.</p>
+            <a href="#modal11" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-foto">
+            <img src="img/servicios/jardineria-foto.jpg" alt="Jardinería">
+            <span class="tarjeta-numero">06</span>
+          </div>
+          <div class="tarjeta-icono"><img src="img/Tauro icono-08.jpg" alt=""></div>
+          <div class="tarjeta-texto">
+            <h3>Jardinería</h3>
+            <p>Creamos y mantenemos espacios verdes saludables y estéticamente impactantes.</p>
+            <a href="#modal12" class="boton-vermas">Ver más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notas-mano">
+      <p>Cuidamos lo<br>que te importa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Modal 1 -->
+<div class="modal" id="modal1">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/vidriosenaltura.jpg" alt="Limpieza de cristales en altura"></div>
+    <div class="modal-text">
+      <h2>Limpieza de cristales en altura</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Mantener los cristales limpios en altura no solo mejora la estética del edificio, sino que también maximiza la entrada de luz natural, lo cual impacta positivamente en el ambiente de trabajo y reduce costos de energía. La acumulación de suciedad puede causar daños permanentes a los cristales, afectando la imagen corporativa y la funcionalidad del inmueble.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Nos adaptamos a proyectos en estructuras desde 2 hasta 60 pisos, atendiendo edificios de cualquier tamaño con el equipo adecuado y una experiencia sólida en trabajos de altura. Realizamos el servicio con sistemas de andamios, grúas y técnicas de descolgado especializadas, garantizando acceso seguro y limpieza eficaz en cada rincón de tu edificio.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal" id="modal2">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/alfombras.jpg" alt="Limpieza de alfombras"></div>
+    <div class="modal-text">
+      <h2>Limpieza de alfombras</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Las alfombras pueden acumular polvo, alérgenos y manchas que afectan la calidad del aire y la estética de los espacios. Un mantenimiento adecuado extiende la vida útil de la alfombra y mejora el entorno de trabajo.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Utilizamos técnicas de limpieza en seco o húmedo, dependiendo de las necesidades, y productos que eliminan manchas y alérgenos sin dañar las fibras. Nuestros equipos de última generación aseguran una limpieza profunda y rápida.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+<div class="modal" id="modal3">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/tinacos.jpg" alt="Limpieza de cisternas"></div>
+    <div class="modal-text">
+      <h2>Limpieza de tinacos y cisternas</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>La limpieza regular de tinacos y cisternas es esencial para garantizar la calidad del agua que se utiliza en el edificio, evitando la proliferación de bacterias y sedimentos que pueden afectar la salud de los ocupantes.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Realizamos un lavado profundo con productos desinfectantes seguros y procedimientos que cumplen con las normativas de higiene. Nuestro personal sigue un protocolo estricto para asegurar la limpieza completa sin afectar la estructura de los depósitos.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+<div class="modal" id="modal4">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/rampas.jpg" alt="Limpieza de rampas"></div>
+    <div class="modal-text">
+      <h2>Lavado de puentes y rampas de cristal</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Estos elementos arquitectónicos requieren mantenimiento para garantizar la seguridad y una apariencia impecable. La acumulación de suciedad puede reducir la visibilidad y la seguridad de los usuarios.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Llevamos a cabo un lavado profundo utilizando técnicas y productos especializados para mantener la transparencia y evitar rayones. El equipo de trabajo utiliza sistemas de seguridad avanzados para realizar el servicio sin riesgos.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 5 -->
+<div class="modal" id="modal5">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/inmueblesenaltura.jpg" alt="Limpieza de inmuebles en altura"></div>
+    <div class="modal-text">
+      <h2>Limpieza de inmuebles en altura</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Mantener las fachadas limpias mejora la imagen del inmueble y previene el deterioro de los materiales expuestos a la intemperie.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Utilizamos equipos de acceso en altura y detergentes especializados que limpian eficazmente sin dañar los acabados. Nuestro equipo está entrenado en medidas de seguridad para asegurar un servicio eficiente y seguro.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 7 -->
+<div class="modal" id="modal7">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/pintura.jpg" alt="Servicio de pintura"></div>
+    <div class="modal-text">
+      <h2>Pintura</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>La pintura no solo revitaliza la apariencia de un edificio, sino que también protege las superficies de la humedad, el desgaste y otros agentes dañinos. Mantener un acabado en buen estado es crucial para la conservación y valorización del inmueble.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Usamos pinturas de alta calidad y métodos que minimizan la interrupción en las actividades diarias del edificio. Nuestro equipo está formado para trabajar con precisión y seguridad, empleando técnicas modernas para garantizar un acabado uniforme y duradero.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 8 -->
+<div class="modal" id="modal8">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/sellado.jpg" alt="Servicio de sellado"></div>
+    <div class="modal-text">
+      <h2>Sellado de ventanas</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Un sellado adecuado evita filtraciones de agua y aire, protegiendo los interiores del edificio y mejorando la eficiencia energética. Esto es crucial para mantener condiciones de confort y prevenir daños estructurales costosos.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Utilizamos selladores de alta calidad y técnicas especializadas que aseguran un ajuste duradero y resistente a las condiciones climáticas. Nuestro equipo está certificado en procedimientos de seguridad para trabajos en altura y manipulación de productos químicos.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 9 -->
+<div class="modal" id="modal9">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/pulidora.jpg" alt="Servicio de pulido"></div>
+    <div class="modal-text">
+      <h2>Pulido y abrillantado de pisos</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>El mantenimiento adecuado de superficies como mármol y granito no solo prolonga su vida útil, sino que también realza la elegancia de los espacios corporativos, mejorando la percepción del entorno por parte de visitantes y empleados.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Empleamos equipos de pulido y productos especializados que devuelven el brillo y protegen las superficies. Nuestro personal recibe formación continua para manejar con precisión los procesos de abrillantado y reparación de imperfecciones.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 10 -->
+<div class="modal" id="modal10">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/impermeabilizado.jpg" alt="Servicio de impermeabilizado"></div>
+    <div class="modal-text">
+      <h2>Impermeabilizado</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Un buen sistema de impermeabilización previene filtraciones que pueden dañar la estructura y provocar costos de reparación elevados. Es esencial para proteger techos y superficies expuestas a las inclemencias del tiempo.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Aplicamos impermeabilizantes de primera calidad que aseguran protección a largo plazo. Nuestro equipo está capacitado en la preparación adecuada de superficies y en técnicas de aplicación que maximizan la adherencia y durabilidad.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 11 -->
+<div class="modal" id="modal11">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/despercudido.jpg" alt="Servicio de despercudido de vidrios"></div>
+    <div class="modal-text">
+      <h2>Despercudido de vidrios y aluminio</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>La acumulación de suciedad y óxido en superficies de vidrio y aluminio puede afectar la apariencia y funcionalidad de un edificio. Mantener estas superficies limpias refuerza la imagen de profesionalismo y cuidado.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Realizamos un tratamiento especializado para remover manchas y desperfectos sin dañar las superficies. Empleamos productos no corrosivos y técnicas cuidadosas para recuperar el brillo original.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 12 -->
+<div class="modal" id="modal12">
+  <a href="#" class="overlay"></a>
+  <div class="modal-content">
+    <a href="#" class="close-modal-btn">×</a>
+    <div class="modal-image"><img src="img/jardineria.jpg" alt="Servicio de jardinería"></div>
+    <div class="modal-text">
+      <h2>Jardinería</h2>
+      <p><b><i>Importancia:</i></b></p>
+      <p>Las áreas verdes contribuyen a un entorno más saludable, reducen el estrés y aumentan la productividad. Mantener estos espacios en óptimas condiciones es fundamental para proyectar una imagen corporativa positiva y promover el bienestar de los empleados.</p>
+      <p><b><i>Cómo lo realizamos:</i></b></p>
+      <p>Ofrecemos un servicio integral que incluye diseño de paisajes, mantenimiento, fumigaciones preventivas y fertilización con productos ecológicos. Nuestro equipo está capacitado en técnicas de manejo de plagas y diseño estético de jardines.</p>
+    </div>
+  </div>
+</div>
+
+<section class="cta-final">
+  <div class="contenedor cta-grid">
+    <div>
+      <h2>¿Listo para trabajar con nosotros?</h2>
+      <p>Conoce cómo podemos ayudarte a mantener tus espacios en las mejores condiciones.</p>
+    </div>
+    <a href="https://wa.me/525517002822" target="_blank" class="boton-whatsapp"><i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor footer-grid">
+    <div>
+      <a href="index.html"><img src="img/toroblanco-10.png" alt="Tauro"></a>
+      <p>Espacios limpios, personas tranquilas.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="nuestros-clientes.html">Nuestros clientes</a></li>
+        <li><a href="preguntasfrecuentes.html">Preguntas frecuentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <div class="footer-redes">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tauro.serviciocontacto@gmail.com&su=Asunto%20del%20correo&body=Cuerpo%20del%20correo" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/tauro.limpieza" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/525517002822" target="_blank"><i class="fab
